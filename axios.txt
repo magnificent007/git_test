@@ -1,0 +1,38 @@
+import axios from 'axios'
+
+function axiosPost(option){
+	axios({
+		url: option.url,
+		method: 'POST',
+		header: {},
+		data: qs.stringify({
+			...options.data,
+			key: App_key
+		})
+	}).then((res) => {
+		option.success(res.data)
+	}).catch((err) => {
+		option.error(err)
+	})
+}
+
+
+import { axiosPost } from 'http'
+
+function getData(data){
+	return new Promise((res, rej) => {
+		axiosPost({
+			url: url,
+			data: {data},
+			success(res){
+				res(res)
+			},
+			error(rej){
+				rej(err)
+			}
+		})
+	})
+}
+
+
+getData().then().catch()
